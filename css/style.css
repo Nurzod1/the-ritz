@@ -1,0 +1,349 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Montserrat;
+  src: url("../src/fonts/Montserrat-Regular.ttf");
+}
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: Montserrat;
+  color: #fff;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+body {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3294117647) 0%, rgba(0, 0, 0, 0) 100%), url("/src/img/background.png");
+  background-size: cover;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 30px 0 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.252);
+}
+.navbar-logo::after {
+  content: "";
+  border-right: 1px solid rgba(255, 255, 255, 0.252);
+  height: 44px;
+  position: absolute;
+  margin-left: 20px;
+}
+.navbar-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-contact__social {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+.navbar-contact__social::after {
+  content: "";
+  border-right: 1px solid rgba(255, 255, 255, 0.252);
+  height: 44px;
+  position: absolute;
+  margin-right: 0px;
+  right: -17px;
+  top: -1px;
+}
+.navbar-contact__social::before {
+  content: "";
+  border-right: 1px solid rgba(255, 255, 255, 0.252);
+  height: 44px;
+  position: absolute;
+  left: -17px;
+  top: -1px;
+}
+.navbar-contact__item {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-contact__phone {
+  text-transform: uppercase;
+  margin-left: 30px;
+}
+
+.main {
+  min-height: 92vh;
+  position: relative;
+}
+
+.main-btn {
+  position: absolute;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(162deg, rgb(20, 20, 20) 50%, rgb(0, 0, 0) 50%);
+  padding: 3px 5px;
+}
+.main-btn.appartament {
+  top: 14%;
+  left: 50%;
+}
+.main-btn.park {
+  top: 47%;
+  left: 33%;
+}
+.main-btn.mansions {
+  top: 50%;
+  left: 9%;
+}
+.main-btn.road {
+  top: 67%;
+  left: 65%;
+}
+.main-btn.brochure {
+  display: flex;
+  align-items: center;
+  padding: 6px 30px;
+  gap: 15px;
+  top: 82%;
+  left: 7%;
+}
+.main-btn__label {
+  background-color: #fff;
+  color: #000000;
+  margin-right: 10px;
+}
+.main-btn__label.brochure {
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  z-index: 9;
+  margin-top: -3000px;
+  transition: 0.5s;
+}
+.modal.active {
+  margin-top: 0;
+}
+.modal-body {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  width: 914px;
+  height: 440px;
+  display: flex;
+  position: relative;
+}
+.modal-contact {
+  background: rgba(7, 28, 53, 0.9);
+  -webkit-backdrop-filter: blur(7.5px);
+          backdrop-filter: blur(7.5px);
+  width: 457px;
+  height: 440px;
+}
+.modal-contact img {
+  width: 100%;
+  height: 100%;
+}
+.modal-form {
+  width: 457px;
+  height: 440px;
+  background: #000;
+  -webkit-backdrop-filter: blur(7.5px);
+          backdrop-filter: blur(7.5px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.modal-form form input {
+  width: 100%;
+  height: 20px;
+  padding: 13px 15px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+.modal-form form input:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.modal-form form input:focus {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+.modal-form form input::-moz-placeholder {
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+}
+.modal-form form input::placeholder {
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+}
+.modal-form__title {
+  font-size: 30px;
+  line-height: 40px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.modal-form__btn {
+  width: 350px;
+  height: 40px;
+  border: none;
+  transition: 0.3s;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.modal-form__btn:hover {
+  background-color: rgba(255, 255, 255, 0.8235294118);
+}
+.modal-form__btn:hover svg path {
+  fill: #ffffff;
+}
+.modal-form__btn p {
+  font-family: Montserrat;
+  font-size: 14px;
+  color: #000;
+  line-height: 17px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.modal-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-90deg);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.1647058824);
+}
+.modal-close:hover p {
+  color: #ffffff;
+}
+.modal-close:hover svg path {
+  fill: #ffffff;
+}
+.modal-close p {
+  font-family: Montserrat;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #000000;
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */
