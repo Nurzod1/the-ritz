@@ -161,6 +161,20 @@ body {
       align-items: center;
       justify-content: center;
       cursor: pointer;
+
+      &:hover {
+        svg {
+          path {
+            fill: #ffffffba;
+          }
+        }
+      }
+
+      svg {
+        path {
+          transition: .2s;
+        }
+      }
     }
 
     &__phone {
@@ -174,13 +188,14 @@ body {
   min-height: 92vh;
   position: relative;
 }
+
 .main-btn {
   position: absolute;
-  background: linear-gradient(162deg, rgb(20, 20, 20) 50%, rgba(0,0,0,1) 50%);
+  background: linear-gradient(162deg, rgb(20, 20, 20) 50%, rgba(0, 0, 0, 1) 50%);
   padding: 3px 5px;
 
   &:hover {
-    background: linear-gradient(162deg, rgb(50, 50, 50) 50%, rgba(0,0,0,1) 50%);
+    background: linear-gradient(162deg, rgb(50, 50, 50) 50%, rgba(0, 0, 0, 1) 50%);
   }
 
   &.appartament {
@@ -288,16 +303,70 @@ body {
   }
 
   &-contact {
-    background: rgba(7, 28, 53, 0.9);
-    backdrop-filter: blur(7.5px);
+    background: url('/src/img/Rectangle.png');
     width: 457px;
     height: 440px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    justify-content: center;
 
     img {
       width: 100%;
       height: 100%;
     }
+
+    &__title {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 45px;
+      font-style: italic;
+      text-transform: capitalize;
+    }
+
+    &__text {
+      max-width: 383px;
+      font-size: 16px;
+      line-height: 150%;
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      &--item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+
+        &:hover {
+          span {
+            color: #ffffffba;
+          }
+
+          svg {
+            path {
+              fill: #ffffffba;
+            }
+          }
+        }
+
+        span {
+          transition: 0.2s;
+        }
+
+        svg {
+          path {
+            transition: 0.2s;
+          }
+        }
+      }
+    }
   }
+
 
   &-form {
     width: 457px;
@@ -338,7 +407,8 @@ body {
 
 
         &::placeholder {
-          font-family: Montserrat;;
+          font-family: Montserrat;
+          ;
           font-size: 16px;
           line-height: 19px;
           color: #ffffff;
@@ -365,10 +435,9 @@ body {
 
       &:hover {
         background-color: #ffffffd2;
-        
-        p {
-        }
-        
+
+        p {}
+
         svg {
           path {
             fill: #ffffff;
