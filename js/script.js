@@ -12,6 +12,20 @@ closeModal.addEventListener('click', () => {
   modal.classList.remove('active')
 })
 
+// Show Photosphere
+
+const photosphere = document.querySelector('#photosphere')
+const openPhotosphere = document.querySelector('#showPhotosphere')
+const closePhotosphere = document.querySelector('#closePhotosphere')
+
+openPhotosphere.addEventListener('click', () => {
+  photosphere.classList.add('active')
+})
+
+closePhotosphere.addEventListener('click', () => {
+  photosphere.classList.remove('active')
+})
+
 // // Open popup-page
   
 // const openPopup = document.querySelector('#project-popup')

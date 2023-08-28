@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin/index.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gallery.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
   <title>EMAAR</title>
 </head>
@@ -73,15 +73,25 @@
         </div>
       </div>
     </div>
-    <div id="viewer" style="width: 100vw; height: 100vh;"></div>
+    <div class="photosphere" id="photosphere">
+      <div class="photosphere-body">
+        <div id="closePhotosphere" class="photosphere-close">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1.85626 21.8062L0.193756 20.1437L9.33751 11L0.193756 1.85623L1.85626 0.193726L11 9.33747L20.1438 0.193726L21.8063 1.85623L12.6625 11L21.8063 20.1437L20.1438 21.8062L11 12.6625L1.85626 21.8062Z"
+              fill="#F3F2EF" />
+          </svg>
+        </div>
+        <div id="viewer" style="min-width: 70vw; width: 70vw; min-height: 70vh; height: 70vh;"></div>
+      </div>
+    </div>
     <section>
       <div class="main">
         <button class="main-btn appartament">
           <span class="main-btn__label">
             M1
           </span>
-          </span class="main-btn__text">
-          <span>
+          <span class="main-btn__text" id="showPhotosphere">
             Appartament
           </span>
         </button>
@@ -89,8 +99,7 @@
           <span class="main-btn__label">
             P1
           </span>
-          </span class="main-btn__text">
-          <span>
+          <span class="main-btn__text">
             Park
           </span>
         </button>
@@ -98,8 +107,7 @@
           <span class="main-btn__label">
             M1
           </span>
-          </span class="main-btn__text">
-          <span>
+          <span class="main-btn__text">
             Mansions
           </span>
         </button>
@@ -107,8 +115,7 @@
           <span class="main-btn__label">
             R1
           </span>
-          </span class="main-btn__text">
-          <span>
+          <span class="main-btn__text">
             Road
           </span>
         </button>
@@ -116,7 +123,6 @@
           <span class="main-btn__label brochure">
             Download brochure
           </span>
-          </span class="main-btn__text">
           <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.84277 10.335L9.49998 14.9922L14.1572 10.335" stroke="white" stroke-width="1.3"
               stroke-miterlimit="10" stroke-linecap="square" />
@@ -135,80 +141,47 @@
     </section>
   </main>
   <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.147/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/gallery.min.js"></script>
 
   <script>
-    const baseUrl = 'https://photo-sphere-viewer-data.netlify.app/assets/';
-
     const viewer = new PhotoSphereViewer.Viewer({
-      container: 'viewer',
-      panorama: baseUrl + 'sphere.jpg',
-      caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
-      loadingImg: baseUrl + 'loader.gif',
-      touchmoveTwoFingers: true,
-      mousewheelCtrlKey: true,
+      container: document.querySelector('#viewer'),
+      panorama: './src/img/4.png',
 
       plugins: [
         [PhotoSphereViewer.GalleryPlugin, {
-          visibleOnLoad: true,
+          items: [
+            {
+              id: 'sphere-test',
+              panorama: './src/img/2.png',
+              name: 'Test sphere',
+              thumbnail: './src/img/2.png',
+            },
+            {
+              id: 'key-biscayne',
+              panorama: './src/img/3.png',
+              name: 'Key Biscayne',
+              thumbnail: './src/img/3.png',
+            },
+            {
+              id: 'key-biscayne',
+              panorama: './src/img/4.png',
+              name: 'Key Biscayne',
+              thumbnail: './src/img/4.png',
+            },
+            {
+              id: 'sphere',
+              panorama: './src/img/1.png',
+              name: 'Test sphere2',
+              thumbnail: './src/img/2.png',
+            }
+          ]
         }],
       ],
     });
-
-    const gallery = viewer.getPlugin(PhotoSphereViewer.GalleryPlugin);
-
-    gallery.setItems([
-      {
-        id: 'sphere',
-        panorama: baseUrl + 'sphere.jpg',
-        thumbnail: baseUrl + 'sphere-small.jpg',
-        options: {
-          caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
-        },
-      },
-      {
-        id: 'sphere-test',
-        panorama: baseUrl + 'sphere-test.jpg',
-        name: 'Test sphere',
-      },
-      {
-        id: 'key-biscayne',
-        panorama: baseUrl + 'tour/key-biscayne-1.jpg',
-        thumbnail: baseUrl + 'tour/key-biscayne-1-thumb.jpg',
-        name: 'Key Biscayne',
-        options: {
-          caption: 'Cape Florida Light, Key Biscayne <b>&copy; Pixexid</b>',
-        },
-      },
-    ]);
-//     const viewer = new PhotoSphereViewer.Viewer({
-//     plugins: [
-//         [PhotoSphereViewer.GalleryPlugin, {
-//             items: [
-//                 {
-//                     id: 'pano-1',
-//                     name: 'Panorama 1',
-//                     panorama: '/src/img/1@2x.png',
-//                     thumbnail: '/src/img/1@2x.png',
-//                 },
-//                 {
-//                     id: 'pano-2',
-//                     name: 'Panorama 2',
-//                     panorama: '/src/img/2.png',
-//                     thumbnail: '/src/img/2.png',
-//                 },
-//                 {
-//                     id: 'pano-2',
-//                     name: 'Panorama 2',
-//                     panorama: '/src/img/3.png',
-//                     thumbnail: '/src/img/3.png',
-//                 },
-//             ],
-//         }],
-//     ],
-// });
   </script>
 </body>
 
